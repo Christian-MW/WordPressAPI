@@ -1,0 +1,62 @@
+[2024-04-30 10:17:17] [ INFO ] [GeneralImpl:57] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-06 10:46:01] [ INFO ] [GeneralImpl:57] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-06 10:46:01] [ INFO ] [GeneralImpl:129] ##########__Procesando la imágen para almacenarla en el servidor WordPress___
+[2024-05-06 10:46:01] [ INFO ] [GeneralImpl:130] => Path: https://www.eluniversal.com.mx/resizer/e_Lzv0Yw0SIfn-VoXqGf6Ynj62c=/651x400/filters:focal(598x213:608x223)/www.eluniversal.com.mx/resizer/U2SK1IfPoUnOyvucFJQpTMIdBe8=/1100x666/filters:focal(598x213:608x223)/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/QZWJTHEBUNEJZPLNXUMIK3DZTQ.jpg
+[2024-05-06 10:46:10] [ INFO ] [GeneralImpl:143] => Path de la imágen: /home/ubuntu/Java/WordPress/Images/image.jpg
+[2024-05-06 10:46:11] [ ERROR] [GeneralImpl:174] #######_PROBLEMAS AL PROCESAR LA IMÁGEN_ servidor de WordPress #####
+[2024-05-06 10:46:11] [ ERROR] [GeneralImpl:175] \home\ubuntu\Java\WordPress\Images\image.jpg
+[2024-05-06 10:50:33] [ INFO ] [GeneralImpl:57] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-06 10:50:43] [ INFO ] [GeneralImpl:129] ##########__Procesando la imágen para almacenarla en el servidor WordPress___
+[2024-05-06 10:50:43] [ INFO ] [GeneralImpl:130] => Path: https://www.eluniversal.com.mx/resizer/e_Lzv0Yw0SIfn-VoXqGf6Ynj62c=/651x400/filters:focal(598x213:608x223)/www.eluniversal.com.mx/resizer/U2SK1IfPoUnOyvucFJQpTMIdBe8=/1100x666/filters:focal(598x213:608x223)/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/QZWJTHEBUNEJZPLNXUMIK3DZTQ.jpg
+[2024-05-06 10:50:43] [ INFO ] [GeneralImpl:143] => Path de la imágen: C:/Users/hk/Pictures/Wallpapers/image.jpg
+[2024-05-06 10:50:43] [ ERROR] [GeneralImpl:174] #######_PROBLEMAS AL PROCESAR LA IMÁGEN_ servidor de WordPress #####
+[2024-05-06 10:50:43] [ ERROR] [GeneralImpl:175] C:\Users\hk\Pictures\Wallpapers\image.jpg
+[2024-05-06 10:51:52] [ INFO ] [GeneralImpl:57] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-06 10:51:57] [ INFO ] [GeneralImpl:129] ##########__Procesando la imágen para almacenarla en el servidor WordPress___
+[2024-05-06 10:51:57] [ INFO ] [GeneralImpl:130] => Path: https://www.eluniversal.com.mx/resizer/e_Lzv0Yw0SIfn-VoXqGf6Ynj62c=/651x400/filters:focal(598x213:608x223)/www.eluniversal.com.mx/resizer/U2SK1IfPoUnOyvucFJQpTMIdBe8=/1100x666/filters:focal(598x213:608x223)/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/QZWJTHEBUNEJZPLNXUMIK3DZTQ.jpg
+[2024-05-06 10:52:13] [ INFO ] [GeneralImpl:143] => Path de la imágen: C:/Users/hk/Pictures/Wallpapers/image.jpg
+[2024-05-06 10:52:40] [ ERROR] [GeneralImpl:174] #######_PROBLEMAS AL PROCESAR LA IMÁGEN_ servidor de WordPress #####
+[2024-05-06 10:53:07] [ INFO ] [GeneralImpl:57] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-06 10:53:11] [ INFO ] [GeneralImpl:129] ##########__Procesando la imágen para almacenarla en el servidor WordPress___
+[2024-05-06 10:53:11] [ INFO ] [GeneralImpl:130] => Path: https://www.eluniversal.com.mx/resizer/e_Lzv0Yw0SIfn-VoXqGf6Ynj62c=/651x400/filters:focal(598x213:608x223)/www.eluniversal.com.mx/resizer/U2SK1IfPoUnOyvucFJQpTMIdBe8=/1100x666/filters:focal(598x213:608x223)/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/QZWJTHEBUNEJZPLNXUMIK3DZTQ.jpg
+[2024-05-06 10:53:28] [ INFO ] [GeneralImpl:143] => Path de la imágen: C:/Users/hk/Pictures/Wallpapers/image.jpg
+[2024-05-06 10:55:34] [ INFO ] [GeneralImpl:57] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-06 10:55:34] [ INFO ] [GeneralImpl:129] ##########__Procesando la imágen para almacenarla en el servidor WordPress___
+[2024-05-06 10:55:34] [ INFO ] [GeneralImpl:130] => Path: https://www.eluniversal.com.mx/resizer/e_Lzv0Yw0SIfn-VoXqGf6Ynj62c=/651x400/filters:focal(598x213:608x223)/www.eluniversal.com.mx/resizer/U2SK1IfPoUnOyvucFJQpTMIdBe8=/1100x666/filters:focal(598x213:608x223)/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/QZWJTHEBUNEJZPLNXUMIK3DZTQ.jpg
+[2024-05-06 10:55:36] [ INFO ] [GeneralImpl:143] => Path de la imágen: C:/Users/hk/Pictures/Wallpapers/image2.jpg
+[2024-05-06 10:55:51] [ INFO ] [GeneralImpl:150] Imagen almacenada correctamente
+[2024-05-06 10:55:56] [ INFO ] [GeneralImpl:162] #####__La imagen https://www.eluniversal.com.mx/resizer/e_Lzv0Yw0SIfn-VoXqGf6Ynj62c=/651x400/filters:focal(598x213:608x223)/www.eluniversal.com.mx/resizer/U2SK1IfPoUnOyvucFJQpTMIdBe8=/1100x666/filters:focal(598x213:608x223)/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/QZWJTHEBUNEJZPLNXUMIK3DZTQ.jpg se ha almacenado correctamente en el servidor de WordPress__#####
+[2024-05-06 10:55:57] [ ERROR] [GeneralImpl:194] El archivo se ha eliminado correctamente.
+[2024-05-06 11:23:27] [ INFO ] [GeneralImpl:57] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-06 11:25:34] [ INFO ] [GeneralImpl:57] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-06 11:25:34] [ INFO ] [GeneralImpl:129] ##########__Procesando la imágen para almacenarla en el servidor WordPress___
+[2024-05-06 11:25:34] [ INFO ] [GeneralImpl:130] => Path: https://www.eluniversal.com.mx/resizer/e_Lzv0Yw0SIfn-VoXqGf6Ynj62c=/651x400/filters:focal(598x213:608x223)/www.eluniversal.com.mx/resizer/U2SK1IfPoUnOyvucFJQpTMIdBe8=/1100x666/filters:focal(598x213:608x223)/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/QZWJTHEBUNEJZPLNXUMIK3DZTQ.jpg
+[2024-05-06 11:25:34] [ INFO ] [GeneralImpl:143] => Path de la imágen: C:/Users/hk/Pictures/Wallpapers/image.jpg
+[2024-05-06 11:25:35] [ INFO ] [GeneralImpl:150] Imagen almacenada correctamente
+[2024-05-06 11:25:35] [ INFO ] [GeneralImpl:162] #####__La imagen https://www.eluniversal.com.mx/resizer/e_Lzv0Yw0SIfn-VoXqGf6Ynj62c=/651x400/filters:focal(598x213:608x223)/www.eluniversal.com.mx/resizer/U2SK1IfPoUnOyvucFJQpTMIdBe8=/1100x666/filters:focal(598x213:608x223)/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/QZWJTHEBUNEJZPLNXUMIK3DZTQ.jpg se ha almacenado correctamente en el servidor de WordPress__#####
+[2024-05-06 11:25:36] [ ERROR] [GeneralImpl:207] El archivo se ha eliminado correctamente.
+[2024-05-06 13:09:36] [ INFO ] [GeneralImpl:57] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-06 13:14:15] [ INFO ] [GeneralImpl:57] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-07 13:04:33] [ INFO ] [GeneralImpl:57] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-07 15:31:49] [ INFO ] [GeneralImpl:57] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-07 15:36:01] [ INFO ] [GeneralImpl:129] ##########__Procesando la imágen para almacenarla en el servidor WordPress___
+[2024-05-07 15:36:01] [ INFO ] [GeneralImpl:130] => Path: https://www.eluniversal.com.mx/resizer/e_Lzv0Yw0SIfn-VoXqGf6Ynj62c=/651x400/filters:focal(598x213:608x223)/www.eluniversal.com.mx/resizer/U2SK1IfPoUnOyvucFJQpTMIdBe8=/1100x666/filters:focal(598x213:608x223)/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/QZWJTHEBUNEJZPLNXUMIK3DZTQ.jpg
+[2024-05-07 15:36:02] [ INFO ] [GeneralImpl:143] => Path de la imágen: /home/ubuntu/Java/WordPress/Images/image.jpg
+[2024-05-07 15:38:06] [ INFO ] [GeneralImpl:57] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-07 15:39:23] [ INFO ] [GeneralImpl:57] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-07 15:40:52] [ INFO ] [GeneralImpl:57] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-07 15:42:21] [ INFO ] [GeneralImpl:129] ##########__Procesando la imágen para almacenarla en el servidor WordPress___
+[2024-05-07 15:42:21] [ INFO ] [GeneralImpl:130] => Path: https://www.eluniversal.com.mx/resizer/e_Lzv0Yw0SIfn-VoXqGf6Ynj62c=/651x400/filters:focal(598x213:608x223)/www.eluniversal.com.mx/resizer/U2SK1IfPoUnOyvucFJQpTMIdBe8=/1100x666/filters:focal(598x213:608x223)/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/QZWJTHEBUNEJZPLNXUMIK3DZTQ.jpg
+[2024-05-07 15:42:21] [ INFO ] [GeneralImpl:143] => Path de la imágen: C:/Users/hk/Pictures/Wallpapers/image.jpg
+[2024-05-07 15:42:21] [ INFO ] [GeneralImpl:150] Imagen almacenada correctamente
+[2024-05-07 15:42:24] [ INFO ] [GeneralImpl:162] #####__La imagen https://www.eluniversal.com.mx/resizer/e_Lzv0Yw0SIfn-VoXqGf6Ynj62c=/651x400/filters:focal(598x213:608x223)/www.eluniversal.com.mx/resizer/U2SK1IfPoUnOyvucFJQpTMIdBe8=/1100x666/filters:focal(598x213:608x223)/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/QZWJTHEBUNEJZPLNXUMIK3DZTQ.jpg se ha almacenado correctamente en el servidor de WordPress__#####
+[2024-05-07 15:42:25] [ INFO ] [GeneralImpl:209] El archivo se ha eliminado correctamente.
+[2024-05-07 15:44:03] [ INFO ] [GeneralImpl:57] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-07 15:44:10] [ INFO ] [GeneralImpl:129] ##########__Procesando la imágen para almacenarla en el servidor WordPress___
+[2024-05-07 15:44:10] [ INFO ] [GeneralImpl:130] => Path: https://www.eluniversal.com.mx/resizer/e_Lzv0Yw0SIfn-VoXqGf6Ynj62c=/651x400/filters:focal(598x213:608x223)/www.eluniversal.com.mx/resizer/U2SK1IfPoUnOyvucFJQpTMIdBe8=/1100x666/filters:focal(598x213:608x223)/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/QZWJTHEBUNEJZPLNXUMIK3DZTQ.jpg
+[2024-05-07 15:44:10] [ INFO ] [GeneralImpl:143] => Path de la imágen: C:/Users/hk/Pictures/Wallpapers/image.jpg
+[2024-05-07 15:44:10] [ INFO ] [GeneralImpl:150] Imagen almacenada correctamente
+[2024-05-07 15:44:11] [ INFO ] [GeneralImpl:162] #####__La imagen https://www.eluniversal.com.mx/resizer/e_Lzv0Yw0SIfn-VoXqGf6Ynj62c=/651x400/filters:focal(598x213:608x223)/www.eluniversal.com.mx/resizer/U2SK1IfPoUnOyvucFJQpTMIdBe8=/1100x666/filters:focal(598x213:608x223)/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/QZWJTHEBUNEJZPLNXUMIK3DZTQ.jpg se ha almacenado correctamente en el servidor de WordPress__#####
+[2024-05-07 15:44:12] [ INFO ] [GeneralImpl:209] El archivo se ha eliminado correctamente.
+[2024-05-08 23:48:07] [ INFO ] [GeneralImpl:57] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-09 00:16:52] [ INFO ] [GeneralImpl:57] #########----Subiendo el post al servidor WordPress----#########
