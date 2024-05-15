@@ -60,3 +60,60 @@
 [2024-05-07 15:44:12] [ INFO ] [GeneralImpl:209] El archivo se ha eliminado correctamente.
 [2024-05-08 23:48:07] [ INFO ] [GeneralImpl:57] #########----Subiendo el post al servidor WordPress----#########
 [2024-05-09 00:16:52] [ INFO ] [GeneralImpl:57] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-14 17:44:20] [ INFO ] [GeneralImpl:68] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-14 17:45:19] [ INFO ] [GeneralImpl:68] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-14 17:47:17] [ INFO ] [GeneralImpl:68] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-14 17:49:17] [ INFO ] [GeneralImpl:68] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-14 17:59:13] [ INFO ] [GeneralImpl:68] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-14 18:07:40] [ INFO ] [GeneralImpl:70] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-15 11:03:22] [ INFO ] [GeneralImpl:72] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-15 11:11:01] [ INFO ] [GeneralImpl:72] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-15 11:13:31] [ INFO ] [GeneralImpl:72] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-15 11:15:42] [ INFO ] [GeneralImpl:72] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-15 11:29:44] [ INFO ] [GeneralImpl:73] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-15 11:31:44] [ INFO ] [GeneralImpl:72] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-15 11:42:52] [ INFO ] [GeneralImpl:72] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-15 11:43:33] [ INFO ] [GeneralImpl:72] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-15 11:52:54] [ INFO ] [GeneralImpl:72] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-15 12:00:35] [ INFO ] [GeneralImpl:72] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-15 12:02:22] [ INFO ] [GeneralImpl:72] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-15 12:02:41] [ INFO ] [GeneralImpl:72] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-15 12:36:02] [ INFO ] [GeneralImpl:72] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-15 12:37:10] [ INFO ] [GeneralImpl:72] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-15 12:39:56] [ INFO ] [GeneralImpl:72] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-15 12:48:21] [ INFO ] [GeneralImpl:72] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-15 12:48:33] [ ERROR] [GeneralImpl:126] No existe el usuario en el archivo de Configuración de WordPress: 404
+[2024-05-15 12:48:45] [ INFO ] [GeneralImpl:72] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-15 12:48:48] [ ERROR] [GeneralImpl:126] No existe el usuario en el archivo de Configuración de WordPress: 404
+[2024-05-15 12:54:33] [ INFO ] [GeneralImpl:72] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-15 12:56:10] [ INFO ] [GeneralImpl:72] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-15 12:56:36] [ INFO ] [GeneralImpl:170] ##########__Procesando la imágen para almacenarla en el servidor WordPress___
+[2024-05-15 12:56:36] [ INFO ] [GeneralImpl:171] => Path: https://www.eluniversal.com.mx/resizer/e_Lzv0Yw0SIfn-VoXqGf6Ynj62c=/651x400/filters:focal(598x213:608x223)/www.eluniversal.com.mx/resizer/U2SK1IfPoUnOyvucFJQpTMIdBe8=/1100x666/filters:focal(598x213:608x223)/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/QZWJTHEBUNEJZPLNXUMIK3DZTQ.jpg
+[2024-05-15 12:56:37] [ INFO ] [GeneralImpl:184] => Path de la imágen: /home/ubuntu/Java/WordPress/Images/image.jpg
+[2024-05-15 12:56:38] [ ERROR] [GeneralImpl:215] #######_PROBLEMAS AL PROCESAR LA IMÁGEN_ servidor de WordPress #####
+[2024-05-15 12:56:38] [ ERROR] [GeneralImpl:216] \home\ubuntu\Java\WordPress\Images\image.jpg
+[2024-05-15 12:57:43] [ INFO ] [GeneralImpl:72] #########----Subiendo el post al servidor WordPress----#########
+[2024-05-15 12:57:49] [ INFO ] [GeneralImpl:170] ##########__Procesando la imágen para almacenarla en el servidor WordPress___
+[2024-05-15 12:57:49] [ INFO ] [GeneralImpl:171] => Path: https://www.eluniversal.com.mx/resizer/e_Lzv0Yw0SIfn-VoXqGf6Ynj62c=/651x400/filters:focal(598x213:608x223)/www.eluniversal.com.mx/resizer/U2SK1IfPoUnOyvucFJQpTMIdBe8=/1100x666/filters:focal(598x213:608x223)/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/QZWJTHEBUNEJZPLNXUMIK3DZTQ.jpg
+[2024-05-15 12:57:49] [ INFO ] [GeneralImpl:184] => Path de la imágen: C:/Users/hk/Pictures/Wallpapers/image.jpg
+[2024-05-15 12:57:49] [ INFO ] [GeneralImpl:191] Imagen almacenada correctamente
+[2024-05-15 12:57:50] [ INFO ] [GeneralImpl:203] #####__La imagen https://www.eluniversal.com.mx/resizer/e_Lzv0Yw0SIfn-VoXqGf6Ynj62c=/651x400/filters:focal(598x213:608x223)/www.eluniversal.com.mx/resizer/U2SK1IfPoUnOyvucFJQpTMIdBe8=/1100x666/filters:focal(598x213:608x223)/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/QZWJTHEBUNEJZPLNXUMIK3DZTQ.jpg se ha almacenado correctamente en el servidor de WordPress__#####
+[2024-05-15 12:57:51] [ INFO ] [GeneralImpl:250] El archivo se ha eliminado correctamente.
+[2024-05-15 12:58:04] [ INFO ] [GeneralImpl:170] ##########__Procesando la imágen para almacenarla en el servidor WordPress___
+[2024-05-15 12:58:04] [ INFO ] [GeneralImpl:171] => Path: https://www.eluniversal.com.mx/resizer/njty31tdipgpYs-SOv8ytNxJ9xo=/260x196/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/42JVX2YSORDHVD5D5ZEOH4GRSI.jpg
+[2024-05-15 12:58:04] [ INFO ] [GeneralImpl:184] => Path de la imágen: C:/Users/hk/Pictures/Wallpapers/image.jpg
+[2024-05-15 12:58:05] [ INFO ] [GeneralImpl:191] Imagen almacenada correctamente
+[2024-05-15 12:58:05] [ INFO ] [GeneralImpl:203] #####__La imagen https://www.eluniversal.com.mx/resizer/njty31tdipgpYs-SOv8ytNxJ9xo=/260x196/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/42JVX2YSORDHVD5D5ZEOH4GRSI.jpg se ha almacenado correctamente en el servidor de WordPress__#####
+[2024-05-15 12:58:06] [ INFO ] [GeneralImpl:250] El archivo se ha eliminado correctamente.
+[2024-05-15 12:58:15] [ INFO ] [GeneralImpl:170] ##########__Procesando la imágen para almacenarla en el servidor WordPress___
+[2024-05-15 12:58:15] [ INFO ] [GeneralImpl:171] => Path: https://www.elfinanciero.com.mx/resizer/Q32SfxK5ub9u2kXC4v3PKJg8WBU=/800x0/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/elfinanciero/6WGIH474TJHDFJZBXZGWNO3VYU.jpg
+[2024-05-15 12:58:15] [ INFO ] [GeneralImpl:184] => Path de la imágen: C:/Users/hk/Pictures/Wallpapers/image.jpg
+[2024-05-15 12:58:15] [ INFO ] [GeneralImpl:191] Imagen almacenada correctamente
+[2024-05-15 12:58:16] [ INFO ] [GeneralImpl:203] #####__La imagen https://www.elfinanciero.com.mx/resizer/Q32SfxK5ub9u2kXC4v3PKJg8WBU=/800x0/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/elfinanciero/6WGIH474TJHDFJZBXZGWNO3VYU.jpg se ha almacenado correctamente en el servidor de WordPress__#####
+[2024-05-15 12:58:17] [ INFO ] [GeneralImpl:250] El archivo se ha eliminado correctamente.
+[2024-05-15 12:58:31] [ INFO ] [GeneralImpl:170] ##########__Procesando la imágen para almacenarla en el servidor WordPress___
+[2024-05-15 12:58:31] [ INFO ] [GeneralImpl:171] => Path: https://www.elfinanciero.com.mx/resizer/j25v3_H3kWWo6H4dmo2GXcN-kp0=/800x0/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/elfinanciero/LH6TFXUGCBAIVKFCIE677SMDCI.jpg
+[2024-05-15 12:58:31] [ INFO ] [GeneralImpl:184] => Path de la imágen: C:/Users/hk/Pictures/Wallpapers/image.jpg
+[2024-05-15 12:58:31] [ INFO ] [GeneralImpl:191] Imagen almacenada correctamente
+[2024-05-15 12:58:32] [ INFO ] [GeneralImpl:203] #####__La imagen https://www.elfinanciero.com.mx/resizer/j25v3_H3kWWo6H4dmo2GXcN-kp0=/800x0/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/elfinanciero/LH6TFXUGCBAIVKFCIE677SMDCI.jpg se ha almacenado correctamente en el servidor de WordPress__#####
+[2024-05-15 12:58:33] [ INFO ] [GeneralImpl:250] El archivo se ha eliminado correctamente.
