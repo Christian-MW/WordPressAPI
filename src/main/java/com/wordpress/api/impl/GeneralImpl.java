@@ -51,10 +51,10 @@ public class GeneralImpl implements GeneralService {
     private String WordpressUser;
     @Value("${wordpress.password}")
     private String WordpressPassword;
-    @Value("${wordpress.url.post}")
-    private String WordpressUrlPost;
-    @Value("${wordpress.url.image}")
-    private String WordpressUrlImage;
+    //@Value("${wordpress.url.post}")
+    //private String WordpressUrlPost;
+    //@Value("${wordpress.url.image}")
+    //private String WordpressUrlImage;
     @Value("${wordpress.filelocation}")
     private String WordpressFileLocation;
     @Value("${file.headers.wordpress.config}")
@@ -79,18 +79,19 @@ public class GeneralImpl implements GeneralService {
 					for (ItemsWordPressModel itemGeneral : request.getItems()) {
 						if (request.getItems().size() > 0) {
 							for (ItemsByPage item : itemGeneral.getResult()) {
-								String apiUrl = WordpressUrlPost;
+								//String apiUrl = WordpressUrlPost;
 								//String username = WordpressUser;
 								//String password = WordpressPassword;
-								String username = access.get(0);
-								String password = access.get(1);
+								String apiUrl = access.get(0) + "/wp-json/wp/v2/posts";
+								String username = access.get(1);
+								String password = access.get(2);
 								Map<Object, Object> data = new HashMap<>();
 								data.put("title", cleanText(item.getTitle(), "title"));
 								data.put("content", cleanText(item.getContent(), "content"));
 								data.put("excerpt", cleanText(item.getContent(), "excerpt"));
 								data.put("status", "publish");
 								data.put("featured_media",
-										uploadImageAndGetMediaId(item.getImageUrl(), username, password));
+										uploadImageAndGetMediaId(item.getImageUrl(), username, password, access.get(0)));
 								// data.put("tags", new String[]{"tag1", "tag2"});
 
 								HttpClient client = HttpClient.newHttpClient();
@@ -166,12 +167,13 @@ public class GeneralImpl implements GeneralService {
         json.append("}");
         return json.toString();
     }
-    private String uploadImageAndGetMediaId(String imagePath, String username, String password) {
+    private String uploadImageAndGetMediaId(String imagePath, String username, String password, String urlMedia) {
     	 log.info("##########__Procesando la imágen para almacenarla en el servidor WordPress___");
     	 log.info("=> Path: " + imagePath);
     	 String imgURL = "";
         try {
-        	String uploadUrl = WordpressUrlImage;
+        	//String uploadUrl = WordpressUrlImage;
+        	String uploadUrl = urlMedia + "/wp-json/wp/v2/media";
         	org.apache.http.client.HttpClient httpClient = HttpClients.createDefault();
             HttpPost httpPost = new HttpPost(uploadUrl);
 
@@ -264,7 +266,7 @@ public class GeneralImpl implements GeneralService {
 	@Override
 	public ResponseEntity<?> UploadImage(UploadImageRequest request) {
 		log.info("");
-		String res = uploadImageAndGetMediaId(request.getImagePath(), request.getUsername(), request.getPassword());
+		String res = uploadImageAndGetMediaId(request.getImagePath(), request.getUsername(), request.getPassword(), "");
 		return null;
 	}
 
@@ -272,6 +274,9 @@ public class GeneralImpl implements GeneralService {
 	public List<String> findAccessByUser(String user, String site, String sheetID) {
 		List<String> access = new ArrayList<>();
 		try {
+	        if (site.endsWith("/")) {
+	        	site = site.substring(0, site.length() - 1);
+	        }
 			ObjectMapper objectMapper = new ObjectMapper();
 			org.springframework.web.client.RestTemplate restTemplate = new org.springframework.web.client.RestTemplate();
 			GoogleGetDataRequest request = new GoogleGetDataRequest();
@@ -292,8 +297,11 @@ public class GeneralImpl implements GeneralService {
 		        boolean finished = false;;
 		        for (int i = 0; i < responseObj.getObjectResult().size() && !finished; i++) {
 		        	for(int j = 0; j < responseObj.getObjectResult().get(i).size() && !finished; j++) {
-		        		//System.out.println(responseObj.getObjectResult().get(i).get(j));
-		        		if(responseObj.getObjectResult().get(i).get(j).toString().equals(site)) {
+		        		String s = responseObj.getObjectResult().get(i).get(j).toString();
+		                if (s.endsWith("/")) 
+		                    s = s.substring(0, s.length() - 1);
+		        		if(s.equals(site)) {
+		        			access.add(s);
 		        			access.add(responseObj.getObjectResult().get(i).get(j+1));
 		        			access.add(responseObj.getObjectResult().get(i).get(j+2));
 		        			finished = true;
