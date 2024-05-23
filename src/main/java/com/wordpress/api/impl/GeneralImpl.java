@@ -35,6 +35,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import com.wordpress.api.dto.model.ItemsByPage;
 import com.wordpress.api.dto.model.ItemsWordPressModel;
 import com.wordpress.api.dto.request.GoogleGetDataRequest;
@@ -72,6 +73,7 @@ public class GeneralImpl implements GeneralService {
 		log.info("#########----Subiendo el post al servidor WordPress----#########");
 		ResponseEntity<?> res = ResponseEntity.ok().build();
 		try {
+			//log.info("=>request : " + new Gson().toJson(request));
 			//Obtener los accesos del sitio WordPress
 			List<String> access = findAccessByUser(request.getUser(), request.getSite(), request.getSpreadsheet_id());
 			if(access.size() > 0) {
@@ -92,8 +94,8 @@ public class GeneralImpl implements GeneralService {
 								data.put("status", "publish");
 								data.put("featured_media",
 										uploadImageAndGetMediaId(item.getImageUrl(), username, password, access.get(0)));
-								// data.put("tags", new String[]{"tag1", "tag2"});
 
+								log.info("=>DATA TO SEND WORDPRESS_ : " + new Gson().toJson(data));
 								HttpClient client = HttpClient.newHttpClient();
 								HttpRequest requestPOST = HttpRequest.newBuilder().uri(URI.create(apiUrl))
 										.header("Content-Type", "application/json")
@@ -104,8 +106,10 @@ public class GeneralImpl implements GeneralService {
 
 								HttpResponse<String> response = client.send(requestPOST,
 										HttpResponse.BodyHandlers.ofString());
+								log.info("=>response WORDPRESS_ : " + new Gson().toJson(response.body()));
 								Thread.sleep(2000);
-								if (response.statusCode() == 201) {
+								if (response.statusCode() == 201 || response.statusCode() == 200) {
+									log.info("###############__SE INSERTÓ CORRECTAMENTE");
 									map.put("code", response.statusCode());
 									map.put("message", "CREATED");
 									res = utilities.getResponseEntity(map);
@@ -221,21 +225,21 @@ public class GeneralImpl implements GeneralService {
     }
     private String cleanText(String text, String Type) {
     	try {
+    		text = text.replaceAll("\n", "");
+    		text = text.replaceAll("\"", "'").replaceAll("[^a-zA-Z0-9 áéíóúÁÉÍÓÚ!<>/'!¡¿?.,()#]", "");
     		int size = text.length();
     		switch (Type) {
 			case "content":
-				if(size < 2500) {
-					String res = text.replaceAll("\"", "'").replaceAll("[^a-zA-Z0-9 áéíóúÁÉÍÓÚ!<>/'!¡¿?.,()#]", "");
-					return res;
+				if(size > 2501) {
+					return text.substring(0, 2501);
 				}
-				else if(size > 2501) {
-					String res = text.replaceAll("\"", "'").replaceAll("[^a-zA-Z0-9 áéíóúÁÉÍÓÚ!<>/'!¡¿?.,()#]", "").substring(0, 2501);
-					return res;
+				else {
+					return text;
 				}
 			case "excerpt":
-				return text.replaceAll("\"", "'").replaceAll("[^a-zA-Z0-9 áéíóúÁÉÍÓÚ!<>/'!¡¿?.,()#]", "").substring(0, 150);
+				return text.substring(0, 150);
 			default:
-				return text.replaceAll("\"", "'").replaceAll("[^a-zA-Z0-9 áéíóúÁÉÍÓÚ!<>/'!¡¿?.,()#]", "");
+				return text;
 			}
 		} catch (Exception ex) {
 			log.error("PROBLEMAS AL LIMPIAR EL TEXTO: " + text);
