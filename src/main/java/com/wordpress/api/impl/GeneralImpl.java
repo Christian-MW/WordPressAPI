@@ -52,10 +52,6 @@ public class GeneralImpl implements GeneralService {
     private String WordpressUser;
     @Value("${wordpress.password}")
     private String WordpressPassword;
-    //@Value("${wordpress.url.post}")
-    //private String WordpressUrlPost;
-    //@Value("${wordpress.url.image}")
-    //private String WordpressUrlImage;
     @Value("${wordpress.filelocation}")
     private String WordpressFileLocation;
     @Value("${file.headers.wordpress.config}")
@@ -73,7 +69,7 @@ public class GeneralImpl implements GeneralService {
 		log.info("#########----Subiendo el post al servidor WordPress----#########");
 		ResponseEntity<?> res = ResponseEntity.ok().build();
 		try {
-			//log.info("=>request : " + new Gson().toJson(request));
+			log.info("##############=========>REQUEST POST FROM EXTENSIÓN : " + new Gson().toJson(request));
 			//Obtener los accesos del sitio WordPress
 			List<String> access = findAccessByUser(request.getUser(), request.getSite(), request.getSpreadsheet_id());
 			if(access.size() > 0) {
@@ -81,19 +77,15 @@ public class GeneralImpl implements GeneralService {
 					for (ItemsWordPressModel itemGeneral : request.getItems()) {
 						if (request.getItems().size() > 0) {
 							for (ItemsByPage item : itemGeneral.getResult()) {
-								//String apiUrl = WordpressUrlPost;
-								//String username = WordpressUser;
-								//String password = WordpressPassword;
 								String apiUrl = access.get(0) + "/wp-json/wp/v2/posts";
 								String username = access.get(1);
 								String password = access.get(2);
 								Map<Object, Object> data = new HashMap<>();
 								data.put("title", cleanText(item.getTitle(), "title"));
 								data.put("content", cleanText(item.getContent(), "content"));
-								data.put("excerpt", cleanText(item.getContent(), "excerpt"));
+								data.put("excerpt", cleanText(item.getTitle(), "excerpt"));
 								data.put("status", "publish");
-								data.put("featured_media",
-										uploadImageAndGetMediaId(item.getImageUrl(), username, password, access.get(0)));
+								data.put("featured_media",uploadImageAndGetMediaId(item.getImageUrl(), username, password, access.get(0)));
 
 								log.info("=>DATA TO SEND WORDPRESS_ : " + new Gson().toJson(data));
 								HttpClient client = HttpClient.newHttpClient();
@@ -225,19 +217,22 @@ public class GeneralImpl implements GeneralService {
     }
     private String cleanText(String text, String Type) {
     	try {
-    		text = text.replaceAll("\n", "");
-    		text = text.replaceAll("\"", "'").replaceAll("[^a-zA-Z0-9 áéíóúÁÉÍÓÚ!<>/'!¡¿?.,()#]", "");
+    		text = text.replaceAll("\n", "<br>");
+    		text = text.replaceAll("\"", "'").replaceAll("[^a-zA-Z0-9 áéíóúÁÉÍÓÚñÑ!<>/'!¡¿?.,()#]", "");
     		int size = text.length();
     		switch (Type) {
 			case "content":
-				if(size > 2501) {
+				if(size > 2501) 
 					return text.substring(0, 2501);
-				}
-				else {
+				else 
 					return text;
-				}
+				
 			case "excerpt":
-				return text.substring(0, 150);
+				if(size > 150) 
+					return text.substring(0, 150);
+				else 
+					return text;
+				
 			default:
 				return text;
 			}
