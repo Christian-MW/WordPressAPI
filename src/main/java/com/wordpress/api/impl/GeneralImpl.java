@@ -107,8 +107,21 @@ public class GeneralImpl implements GeneralService {
 									res = utilities.getResponseEntity(map);
 								} else {
 									log.error("ERROR AL INSERTAR EL POST EN WORDPRESS Code: " + response.statusCode());
-									map.put("code", 500);
-									map.put("message", "ERROR");
+									switch (response.statusCode()) {
+									case 500:{
+										map.put("code", 500);
+										map.put("message", "ERROR");
+										break;
+									}
+									case 400: 
+									case 404: {
+										map.put("code", 404);
+										map.put("message", "PROBLEMAS CON LAS CREDENCIALES");
+										break;
+									}
+									default:
+										throw new IllegalArgumentException("Unexpected value: " + response.statusCode());
+									}
 									res = utilities.getResponseEntity(map);
 								}
 							}
