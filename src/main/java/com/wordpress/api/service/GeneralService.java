@@ -7,4 +7,5 @@ import com.wordpress.api.dto.request.*;
 public interface GeneralService {
 	ResponseEntity<?> addItemsToWP (ItemsByPageRequest request);
 	ResponseEntity<?> UploadImage (UploadImageRequest request);
+	/*ResponseEntity<?> uploadImagePostWP (UploadImagePostRequest request);*/
 }

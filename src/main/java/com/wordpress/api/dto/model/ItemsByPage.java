@@ -6,6 +6,8 @@ public class ItemsByPage {
 	private String imageUrl;
 	private String date;
 	private String content;
+	private String imageB64;
+	private boolean addImage;
 	
 	public String getLink() {
 		return link;
@@ -36,5 +38,17 @@ public class ItemsByPage {
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public String getImageB64() {
+		return imageB64;
+	}
+	public void setImageB64(String imageB64) {
+		this.imageB64 = imageB64;
+	}
+	public boolean isAddImage() {
+		return addImage;
+	}
+	public void setAddImage(boolean addImage) {
+		this.addImage = addImage;
 	}
 }

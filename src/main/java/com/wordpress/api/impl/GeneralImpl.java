@@ -1,6 +1,7 @@
 package com.wordpress.api.impl;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
@@ -38,9 +39,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.wordpress.api.dto.model.ItemsByPage;
 import com.wordpress.api.dto.model.ItemsWordPressModel;
-import com.wordpress.api.dto.request.GoogleGetDataRequest;
-import com.wordpress.api.dto.request.ItemsByPageRequest;
-import com.wordpress.api.dto.request.UploadImageRequest;
+import com.wordpress.api.dto.request.*;
 import com.wordpress.api.dto.response.GoogleGetDataResponse;
 import com.wordpress.api.service.GeneralService;
 import com.wordpress.api.util.Utilities;
@@ -60,6 +59,15 @@ public class GeneralImpl implements GeneralService {
     private String NAME_SHEET_WP_CONFIG;
     @Value("${file.wordpress.name.col}")
     private String NAME_COLUMN_SITE;
+    @Value("${wordpress.path.media}")
+    private String WORDPRESS_PATH_MEDIA;
+    @Value("${wordpress.path.post}")
+    private String WORDPRESS_PATH_POST;
+    
+    @Value("${wordpress.name.image.post}")
+    private String WORDPRESS_NAME_POST;
+    @Value("${wordpress.name.image.load}")
+    private String WORDPRESS_NAME_LOAD;
 	@Autowired
 	Utilities utilities;
 
@@ -77,15 +85,25 @@ public class GeneralImpl implements GeneralService {
 					for (ItemsWordPressModel itemGeneral : request.getItems()) {
 						if (request.getItems().size() > 0) {
 							for (ItemsByPage item : itemGeneral.getResult()) {
-								String apiUrl = access.get(0) + "/wp-json/wp/v2/posts";
+								String apiUrl = access.get(0) + WORDPRESS_PATH_POST;
 								String username = access.get(1);
 								String password = access.get(2);
+								int [] categoriesArr = {0,1};
 								Map<Object, Object> data = new HashMap<>();
 								data.put("title", cleanText(item.getTitle(), "title"));
 								data.put("content", cleanText(item.getContent(), "content"));
 								data.put("excerpt", cleanText(item.getTitle(), "excerpt"));
 								data.put("status", "publish");
-								data.put("featured_media",uploadImageAndGetMediaId(item.getImageUrl(), username, password, access.get(0)));
+								data.put("categories", 5);
+								
+								//Validación de la imagen para saber si se tiene que almacenar la que tiene el post
+								//O generar y almacenar la imagen que cargó el usuario
+								if(item.isAddImage()) {
+									data.put("featured_media",uploadImagePostWP(item.getImageB64(), username, password, request.getSpreadsheet_id(), access.get(0)));
+								}else {
+									data.put("featured_media",uploadImageAndGetMediaId(item.getImageUrl(), username, password, access.get(0)));
+								}
+								
 
 								log.info("=>DATA TO SEND WORDPRESS_ : " + new Gson().toJson(data));
 								HttpClient client = HttpClient.newHttpClient();
@@ -180,9 +198,11 @@ public class GeneralImpl implements GeneralService {
     	 log.info("##########__Procesando la imágen para almacenarla en el servidor WordPress___");
     	 log.info("=> Path: " + imagePath);
     	 String imgURL = "";
+    	 String directory = WordpressFileLocation;
         try {
+        	deleteImage(directory + WORDPRESS_NAME_POST);
         	//String uploadUrl = WordpressUrlImage;
-        	String uploadUrl = urlMedia + "/wp-json/wp/v2/media";
+        	String uploadUrl = urlMedia + WORDPRESS_PATH_MEDIA;
         	org.apache.http.client.HttpClient httpClient = HttpClients.createDefault();
             HttpPost httpPost = new HttpPost(uploadUrl);
 
@@ -191,11 +211,10 @@ public class GeneralImpl implements GeneralService {
             
             //Desacargar la imágen
             //String directory="C:/Users/hk/Pictures/Wallpapers/";
-            String directory = WordpressFileLocation;
-            log.info("=> Path de la imágen: " + directory + "image.jpg");
+            log.info("=> Path de la imágen: " + directory + WORDPRESS_NAME_POST);
             URL url = new URL(imagePath);
             InputStream inputStream = url.openStream();
-            Path destinationPath = Paths.get(directory, "image.jpg");
+            Path destinationPath = Paths.get(directory, WORDPRESS_NAME_POST);
             Files.copy(inputStream, destinationPath);
             inputStream.close();
             imgURL = destinationPath.toString();
@@ -307,26 +326,88 @@ public class GeneralImpl implements GeneralService {
 	        GoogleGetDataResponse responseObj = objectMapper.readValue(res, GoogleGetDataResponse.class);
 	        if(responseObj.getCode() == 200) {
 		        boolean finished = false;;
+		        responseObj.getObjectResult().remove(0);
 		        for (int i = 0; i < responseObj.getObjectResult().size() && !finished; i++) {
-		        	for(int j = 0; j < responseObj.getObjectResult().get(i).size() && !finished; j++) {
-		        		String s = responseObj.getObjectResult().get(i).get(j).toString();
-		                if (s.endsWith("/")) 
-		                    s = s.substring(0, s.length() - 1);
-		        		if(s.equals(site)) {
-		        			access.add(s);
-		        			access.add(responseObj.getObjectResult().get(i).get(j+1));
-		        			access.add(responseObj.getObjectResult().get(i).get(j+2));
-		        			finished = true;
-		        			break;
-		        		}
+		        	String s = responseObj.getObjectResult().get(i).get(0).toString();
+	                if (s.endsWith("/")) 
+	                    s = s.substring(0, s.length() - 1);
+		        	if(responseObj.getObjectResult().get(i).get(0).toString().endsWith(site) && responseObj.getObjectResult().get(i).get(1).toString().endsWith(user)) {
+		        		System.out.println(responseObj.getObjectResult().get(i));
+	        			access.add(s);
+	        			access.add(responseObj.getObjectResult().get(i).get(1).toString());
+	        			access.add(responseObj.getObjectResult().get(i).get(2).toString());
+	        			finished = true;
+	        			break;
 		        	}
-				}
+		        }
 	        }
 	        return access;
 	        
 		} catch (Exception ex) {
 			System.out.println(ex);
 			return access;
+		}
+	}
+
+	/*
+	 * Almacenar imágen cargada desde la extensión*/
+	//public ResponseEntity<?> uploadImagePostWP(UploadImagePostRequest request) {
+	public String uploadImagePostWP(String imageB64, String username, String password, String spreadsheet_id, String urlMedia) {
+		log.info("#################---CARGANDO IMÁGEN DEL POST----###################");
+		String imgURL = "";
+		String directory = WordpressFileLocation;
+		Map<String, Object> map = new HashMap<String, Object>();
+		ResponseEntity<?> res = ResponseEntity.ok().build();
+		try {
+				String path= directory + WORDPRESS_NAME_LOAD;
+				deleteImage(path);
+	            //Convertir el base64 a imagen
+	            String base64Image = imageB64.split(",")[1];
+	            byte[] imageBytes = Base64.getDecoder().decode(base64Image);
+	            try (FileOutputStream fos = new FileOutputStream(new File(path))) {
+	                fos.write(imageBytes);
+	                System.out.println("Imagen guardada en: " + path);
+	            } catch (IOException e) {
+	                e.printStackTrace();
+	            }
+	            
+	            Path destinationPath = Paths.get(path);
+	            imgURL = destinationPath.toString();
+				String uploadUrl = urlMedia + WORDPRESS_PATH_MEDIA;
+	        	org.apache.http.client.HttpClient httpClient = HttpClients.createDefault();
+	            HttpPost httpPost = new HttpPost(uploadUrl);
+	            
+	            if (username != null && password != null) 
+	                httpPost.setHeader("Authorization", "Basic " + java.util.Base64.getEncoder().encodeToString((username + ":" + password).getBytes()));
+	            
+	            
+	            //Almacenar la imagen en el server
+	            File imageFile = new File(imgURL);
+	            FileBody fileBody = new FileBody(imageFile);
+	            HttpEntity entity = MultipartEntityBuilder.create()
+	                    .addPart("file", fileBody)
+	                    .build();
+	            httpPost.setEntity(entity);
+	            org.apache.http.HttpResponse response = httpClient.execute(httpPost);
+	            
+	            int statusCode = response.getStatusLine().getStatusCode();
+	            if (statusCode == 201) {
+	            	log.info("#####__La imagen "+ directory + WORDPRESS_NAME_LOAD+" se ha almacenado correctamente en el servidor de WordPress__#####");
+	                String responseBody = EntityUtils.toString(response.getEntity());
+	                JSONObject jsonObject = new JSONObject(responseBody);
+	                //int id = Integer.valueOf(jsonObject.get("id").toString());
+	                boolean status = deleteImage(imgURL);
+	                return jsonObject.get("id").toString();
+	            } else {
+	            	log.error("Error al subir la imagen al servidor de WordPress. Código de estado: " + statusCode);
+	                System.err.println("Error al subir la imagen. Código de estado: " + statusCode);
+	                return "";
+	            }
+		} catch (Exception ex) {
+        	log.error("#######_PROBLEMAS AL PROCESAR LA IMÁGEN_ servidor de WordPress #####");
+        	log.error(ex.getMessage());
+            return "";
+			
 		}
 	}
 }

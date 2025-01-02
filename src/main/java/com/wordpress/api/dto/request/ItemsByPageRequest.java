@@ -9,6 +9,7 @@ public class ItemsByPageRequest {
 	private String user;
 	private String site;
 	private String spreadsheet_id;
+	private Boolean uploadImage;
 	private List<ItemsWordPressModel> items;
 	
 	public String getUser() {
@@ -28,6 +29,12 @@ public class ItemsByPageRequest {
 	}
 	public void setSpreadsheet_id(String spreadsheet_id) {
 		this.spreadsheet_id = spreadsheet_id;
+	}
+	public Boolean getUploadImage() {
+		return uploadImage;
+	}
+	public void setUploadImage(Boolean uploadImage) {
+		this.uploadImage = uploadImage;
 	}
 	public List<ItemsWordPressModel> getItems() {
 		return items;

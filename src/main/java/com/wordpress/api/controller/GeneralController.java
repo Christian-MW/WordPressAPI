@@ -39,4 +39,9 @@ public class GeneralController {
 	public ResponseEntity<?> UploadImage(@RequestBody UploadImageRequest request){
 		return generalService.UploadImage(request);
 	}
+	/*@PostMapping(value="/API/V1/uploadImagePostWP",
+	consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> uploadImagePostWP(@RequestBody UploadImagePostRequest request){
+		return generalService.uploadImagePostWP(request);
+	}*/
 }
